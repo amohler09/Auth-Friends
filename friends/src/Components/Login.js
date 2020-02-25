@@ -63,6 +63,6 @@ export const Login = props => {
 //  add .then & .catch
 //      .then - initially console.log the results and see where the token is located
 //      (usually in the payload but not always)
-//      set the localStorage 'token' to whatever matches the real token (res.data.payload here)
-//      navigate the user to the FriendsList page with props.history.push(it's always that)
-//  Now go work on FriendsList.js
+//      save the 'token' to localStorage so it is remembered (res.data.payload here)
+//      navigate the user to the FriendsList page with history object (props.history.push)
+//  Now create a PrivateRoute component
