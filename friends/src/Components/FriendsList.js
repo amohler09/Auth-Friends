@@ -7,3 +7,5 @@ export const FriendsList = () => {
         </div>
     )
 }
+
+
