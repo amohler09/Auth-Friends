@@ -1,5 +1,42 @@
 import React, { useState } from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import styled from 'styled-components'
+
+const StyledForm = styled.form`
+    padding: 5% 0;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+`;
+
+const StyledInput = styled.input`
+    width: 50%;
+    height: 20px;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    border: 1px solid purple;
+    box-shadow: -5px 5px 8px dimgrey;
+    outline: none;
+`;
+
+const LogInBtn = styled.button`
+    width: 20%;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Fredericka the Great';
+    height: 40px;
+    border: 1px solid rebeccapurple;
+    background-color: dimgrey;
+    box-shadow: -8px 8px 8px rebeccapurple;
+    margin: auto;
+`;
+
+const StyledLabel = styled.label`
+    font-family: 'Fredericka the Great';
+    font-size: 1.5rem;
+`;
+
+
 
 export const Login = props => {
     const [credentials, setCredentials] = useState({ username: '', password: '' })
@@ -27,24 +64,28 @@ export const Login = props => {
     }
 
     return (
-        <div>
-           <h2>Login Page</h2>
-           <form onSubmit={login}>
-               <input
+           <StyledForm onSubmit={login}>
+               <StyledLabel>
+                   Username <br />
+               <StyledInput
                type='text'
                name='username'
                value={credentials.username}
                onChange={handleChange}
                />
-               <input
+               </StyledLabel>
+
+               <StyledLabel>
+                Password <br />
+               <StyledInput
                type='password'
                name='password'
                value={credentials.password}
                onChange={handleChange}
                />
-               <button>Log In</button>
-           </form>
-        </div>
+               </StyledLabel>
+               <LogInBtn>Log In</LogInBtn>
+           </StyledForm>
     )
 }
 

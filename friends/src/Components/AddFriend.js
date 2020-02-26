@@ -5,7 +5,7 @@ export const AddFriend = props => {
     const [textInput, setTextInput] = useState({
         name: '',
         age: '',
-        email: '',
+        email: ''
     })
 
     const handleChange = e => {
@@ -57,6 +57,7 @@ export const AddFriend = props => {
 }
 
 //  set State to the same shape as the objects are in server.js with empty spots
+//  you don't need an ID because the server has a function on it to create an ID for you
 //  form needs type, name, value & onChange
 //  onChange = handleChange = spread in previous input & target new values
 //  onSubmit = handleSubmit = axiosWithAuth with post path request from server.js
