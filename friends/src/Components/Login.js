@@ -22,7 +22,7 @@ export const Login = props => {
             //navigate user to friendsList page
             props.history.push('/protected')
         })
-        .catch(err => console.log('error', err))
+        .catch(err => console.log('error in Login', err))
 
     }
 

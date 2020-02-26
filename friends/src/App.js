@@ -4,6 +4,9 @@ import PrivateRoute from './Components/PrivateRoute'
 
 import { Login } from './Components/Login'
 import { FriendsList } from './Components/FriendsList'
+import { AddFriend } from './Components/AddFriend'
+import { RemoveFriend } from './Components/RemoveFriend'
+import { UpdateFriend } from './Components/UpdateFriend'
 
 
 import './App.css';
@@ -19,8 +22,9 @@ function App() {
       <Switch>
         <PrivateRoute exact path='/protected' component={FriendsList} />
         <Route path='/login' component={Login} />
-        <Route component={Login} />
-        
+        <PrivateRoute path='/addfriend' component={AddFriend} />
+        <PrivateRoute path='/removefriend' component={RemoveFriend}/>
+        <PrivateRoute path='/updatefriend' component={UpdateFriend} />
       </Switch>
      
     </div>
@@ -36,5 +40,9 @@ export default App;
 //  Add Links to each page -- FriendsList is the protected page
 //  Add a Switch to switch between pages (add nav component later if you have time)
 //  Go to Login component
+
+//  STEP SIX
+//  Import PrivateRoute and attach to each Route that needs to be protected
+//  Go to FriendsList component
 
 
