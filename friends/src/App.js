@@ -77,6 +77,7 @@ function App() {
         <PrivateRoute path='/addfriend' component={AddFriend} />
         <PrivateRoute path='/removefriend' component={RemoveFriend}/>
         <PrivateRoute path='/updatefriend' component={UpdateFriend} />
+        <Route path='/' component={Login} />
       </Switch>
      
     </AppDiv>

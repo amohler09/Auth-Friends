@@ -1,5 +1,38 @@
 import React, { useState } from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import styled from 'styled-components'
+
+const StyledForm = styled.form`
+    padding: 5% 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+const StyledInput = styled.input`
+    width: 50%;
+    height: 20px;
+    margin-bottom: 5%;
+    margin: 2% auto;
+    border: 1px solid purple;
+    box-shadow: -5px 5px 8px dimgrey;
+    outline: none;
+`;
+
+const StyledBtn = styled.button`
+    width: 40%;
+    padding: 1%;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Fredericka the Great';
+    border: 1px solid rebeccapurple;
+    background-color: dimgrey;
+    box-shadow: -8px 8px 8px rebeccapurple;
+    margin: 5% auto;
+`;
+
+
 
 export const AddFriend = props => {
     const [textInput, setTextInput] = useState({
@@ -22,37 +55,39 @@ export const AddFriend = props => {
             .post('/api/friends', textInput)
             .then(res => {
                 console.log(res)
+                //setTextInput(res.data)
                 props.history.push('/protected')})
             .catch(err => console.log(err))
-
     }
 
 
     return (
-        <div>
-            Add Friend Feature
-            <form onSubmit={handleSubmit}>
-                <input
+            <StyledForm onSubmit={handleSubmit}>
+                <StyledInput
                 type='text'
                 name='name'
                 value={textInput.name}
                 onChange={handleChange}
-                placeholder='name'  />
-                <input
+                placeholder='name'  
+                />
+
+                <StyledInput
                 type='text'
                 name='age'
                 value={textInput.age}
                 onChange={handleChange}
-                placeholder='age'  />
-                <input
+                placeholder='age'  
+                />
+
+                <StyledInput
                 type='text'
                 name='email'
                 value={textInput.email}
                 onChange={handleChange}
-                placeholder='email'  />
-                <button>Add Friend!</button>
-            </form>
-        </div>
+                placeholder='email'  
+                />
+                <StyledBtn>Add Friend!</StyledBtn>
+            </StyledForm>
     )
 }
 
